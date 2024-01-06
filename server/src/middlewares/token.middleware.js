@@ -8,7 +8,7 @@ const tokenDecode = (req) => {
           if (bearerHeader) {
                const token = bearerHeader.split(" ")[1];
                return jsonwebtoken.verify(
-                    token, process.env.TOKEN_SECRET
+                    token, process.env.TOKEN_SECRET_KEY
                )
           }
           return false;
