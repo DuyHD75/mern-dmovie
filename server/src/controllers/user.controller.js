@@ -66,7 +66,7 @@ const updatePassword = async (req, res) => {
 
           const user = await userModel.findById(req.user.id).select("password id salt");
 
-          if (!user) return responseHandler.unauthorize(res);
+          if (!user) return responseHandler.unAuthorize(res);
 
           if (!user.validPassword(password)) return responseHandler.badRequest(res, "Wrong password");
 

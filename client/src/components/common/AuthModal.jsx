@@ -19,14 +19,12 @@ const AuthModal = () => {
 
   const [action, setAction] = useState(actionState);
   const switchAuthState = (state) => setAction(state);
-  
+
   useEffect(() => {
     if (authModalOpen) setAction(actionState.login);
   }, [authModalOpen]);
 
   const handleClose = () => dispatch(setAuthModalOpen(false))
-
-
 
   return (
     <Modal open={authModalOpen} onClose={handleClose}>
@@ -50,6 +48,6 @@ const AuthModal = () => {
       </Box>
     </Modal>
   )
-}
+};
 
-export default AuthModal
+export default AuthModal;

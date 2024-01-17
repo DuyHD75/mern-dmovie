@@ -4,36 +4,42 @@ import GlobalLoading from '../common/GlobalLoading';
 import Footer from "../common/Footer"
 import Topbar from "../common/Topbar"
 import AuthModal from "../common/AuthModal";
-
-
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
+import userApi from "../../api/modules/user.api";
+import favoriteApi from "../../api/modules/favorite.api";
+import { setListFavorites, setUser } from "../../redux/features/userSlice";
 
 const MainLayout = () => {
-     // const dispatch = useDispatch();
 
-     // const { user } = useSelector((state) => state.user);
 
-     // useEffect(() => {
-     //      const authUser = async () => {
-     //           const { response, err } = await userApi.getInfo();
+     const dispatch = useDispatch();
 
-     //           if (response) dispatch(setUser(response));
-     //           if (err) dispatch(setUser(null));
-     //      };
+     const { user } = useSelector((state) => state.user);
 
-     //      authUser();
-     // }, [dispatch]);
+     useEffect(() => {
+          const authUser = async () => {
+               const { response, err } = await userApi.getInfo();
 
-     // useEffect(() => {
-     //      const getFavorites = async () => {
-     //           const { response, err } = await favoriteApi.getList();
+               if (response) dispatch(setUser(response));
+               if (err) dispatch(setUser(null));
+          };
 
-     //           if (response) dispatch(setListFavorites(response));
-     //           if (err) toast.error(err.message);
-     //      };
+          authUser();
+     }, [dispatch]);
 
-     //      if (user) getFavorites();
-     //      if (!user) dispatch(setListFavorites([]));
-     // }, [user, dispatch]);
+     useEffect(() => {
+          const getFavorites = async () => {
+               const { response, err } = await favoriteApi.getList();
+
+               if (response) dispatch(setListFavorites(response));
+               if (err) toast.error(err.message);
+          };
+
+          if (user) getFavorites();
+          if (!user) dispatch(setListFavorites([]));
+     }, [user, dispatch]);
 
      return (
           <div>
@@ -41,10 +47,7 @@ const MainLayout = () => {
                <GlobalLoading />
                {/* global loading */}
 
-
-
                {/* login modal */}
-
 
                {/*  <AuthModal />*/}
                <AuthModal />
@@ -54,7 +57,7 @@ const MainLayout = () => {
                     {/* header */}
                     <Topbar />
                     {/* header */}
-
+                    
                     {/* main */}
                     <Box
                          component="main"
@@ -66,7 +69,6 @@ const MainLayout = () => {
                     </Box>
                     {/* main */}
                </Box>
-
                {/* footer */}
                <Footer />
                {/* footer */}

@@ -54,6 +54,7 @@ const Topbar = () => {
      return (
           <div>
                <SideBar open={sideBarOpen} toggleSidebar={toggleSidebar} />
+              
                <ScrollAppBar>
                     <AppBar
                          elevation={0}
@@ -84,7 +85,6 @@ const Topbar = () => {
                                         display: { xs: "inline-block", md: 'none' }
                                    }}>
                                         <Logo />
-
                                    </Box>
                               </Stack>
                               {/*main menu */}
@@ -127,7 +127,9 @@ const Topbar = () => {
                                         Login
                                    </Button>}
                               </Stack>
+                              
                               {user && <UserMenu />}
+
                               {/*user menu */}
                          </Toolbar>
                     </AppBar>

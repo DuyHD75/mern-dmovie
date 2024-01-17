@@ -66,9 +66,8 @@ const SideBar = ({ open, toggleSidebar }) => {
                     ))}
                     {user && (
                          <div>
-                              <Typography
-                                   variant='h6' marginBottom="20px"
-                              >PERSONAL</Typography>
+                              <Typography variant='h6' marginBottom="20px">PERSONAL</Typography>
+
                               {menuConfigs.user.map((item, index) => (
                                    <ListItemButton
                                         key={index}
@@ -79,8 +78,7 @@ const SideBar = ({ open, toggleSidebar }) => {
                                         }}
                                         component={Link}
                                         to={item.path}
-                                        onClick={() => toggleSidebar(false)}
-                                   >
+                                        onClick={() => toggleSidebar(false)}>
                                         <ListItemIcon>{item.icon}</ListItemIcon>
                                         <ListItemText
                                              disableTypography
@@ -92,11 +90,7 @@ const SideBar = ({ open, toggleSidebar }) => {
                               ))}
                          </div>
                     )}
-
-                    <Typography
-                         variant='h6' marginBottom="20px"
-                    >THEME</Typography>
-
+                    <Typography variant='h6' marginBottom="20px"  >THEME</Typography>
                     <ListItemButton onClick={onSwitchTheme}>
                          <ListItemIcon>
                               {themeMode === themeModes.dark && <DarkModeOutlinedIcon />}
@@ -104,13 +98,12 @@ const SideBar = ({ open, toggleSidebar }) => {
                          </ListItemIcon>
                          <ListItemText
                               disableTypography
-                              primary={<Typography
-                                   textTransform="uppercase"
-                              >{themeMode === themeModes.dark ? "Dark Mode" : "Light Mode"}</Typography>}
+                              primary={
+                                   <Typography textTransform="uppercase">{themeMode === themeModes.dark ? "Dark Mode" : "Light Mode"}</Typography>
+                              }
                          />
                     </ListItemButton>
                </List>
-
           </div>
      );
 

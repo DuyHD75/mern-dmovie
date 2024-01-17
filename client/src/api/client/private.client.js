@@ -15,9 +15,9 @@ privateClient.interceptors.request.use(async config => {
           ...config,
           headers: {
                "Content-Type": "application/json",
-               'Authorization': `Bearer ${localStorage.getItem("actkn")}`
+               "Authorization": `Bearer ${localStorage.getItem("actkn")}`
           }
-     }
+     };
 });
 
 privateClient.interceptors.response.use((response) => {
@@ -26,5 +26,6 @@ privateClient.interceptors.response.use((response) => {
 }, (err) => {
      throw err.response.data;
 });
+
 
 export default privateClient;

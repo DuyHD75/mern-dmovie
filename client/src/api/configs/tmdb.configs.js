@@ -8,17 +8,17 @@ const mediaCategory = {
      top_rated: "top_rated"
 };
 
-const backropPath = (imgEndPoint) => `https://image.tmdb.org/t/p/original${imgEndPoint}`;
+const backdropPath = (imgEndPoint) => `https://image.tmdb.org/t/p/original${imgEndPoint}`;
 
-const posterPath = (imgEndPoint) => `https://image.tmdb.org/t/p/original/w500${imgEndPoint}`;
+const posterPath = (imgEndPoint) => `https://image.tmdb.org/t/p/w500${imgEndPoint}`;
 
-const ytbPath = (videoId) => `http://www/youtube.com/embed/${videoId}`
+const ytbPath = (videoId) => `https://www.youtube.com/embed/${videoId}?controls=0`;
 
 
 const tmdbConfigs = {
      mediaType,
      mediaCategory,
-     backropPath,
+     backdropPath,
      posterPath,
      ytbPath
 }

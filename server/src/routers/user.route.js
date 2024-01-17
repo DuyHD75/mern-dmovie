@@ -6,7 +6,7 @@ import requestHandler from '../handlers/request.handler.js';
 import userModel from '../models/user.model.js';
 import tokenMiddleware from '../middlewares/token.middleware.js';
 
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 
 router.post(
      "/signup",
@@ -74,13 +74,13 @@ router.get(
 router.get(
      "/favorites",
      tokenMiddleware.auth,
-     favoriteController.getFavoriteOfUser
+     favoriteController.getFavoritesOfUser
 );
 
 router.post(
      "/favorites",
      tokenMiddleware.auth,
-     body("mediatype")
+     body("mediaType")
           .exists().withMessage("Media type is required !")
           .custom(type => ["movie", "tv"].includes(type))
           .withMessage("MediaType invalid !"),

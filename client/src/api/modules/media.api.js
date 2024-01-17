@@ -9,16 +9,15 @@ const mediaEndpoints = {
 
 
 const mediaApi = {
-     getList: async ({ mediaType, mediaCategory }) => {
+     getList: async ({ mediaType, mediaCategory, page = 1 }) => {
           try {
-               const response = await publicClient.get(mediaEndpoints.list({ mediaType, mediaCategory }),
-                    { mediaType, mediaCategory });
+               const response = await publicClient.get(mediaEndpoints.list({ mediaType, mediaCategory, page }));
                return { response };
-          } catch (err) { return { err } };
+          } catch (err) { return { err } }
      },
-     detail: async ({ mediaType, mediaId }) => {
+     getDetail: async ({ mediaType, mediaId }) => {
           try {
-               const response = await publicClient.get(mediaEndpoints.detail({ mediaType, mediaId }));
+               const response = await privateClient.get(mediaEndpoints.detail({ mediaType, mediaId }));
                return { response };
           } catch (err) { return { err } };
      },

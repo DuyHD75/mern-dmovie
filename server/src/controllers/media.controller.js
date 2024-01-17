@@ -50,6 +50,7 @@ const getDetail = async (req, res) => {
           const params = { mediaType, mediaId };
 
           const media = await tmdbApi.mediaDetail(params);
+
           media.credits = await tmdbApi.mediaCredits(params);
 
           const videos = await tmdbApi.mediaVideos(params);
@@ -64,11 +65,12 @@ const getDetail = async (req, res) => {
           if (tokenDecoded) {
                const user = await userModel.findById(tokenDecoded.data);
                if (user) {
-                    const isFavorite = await favoriteModel.findOne({ user: user.id }, mediaId);
+                    const isFavorite = await favoriteModel.findOne({ user: user.id, mediaId }).exec();
                     media.isFavorite = isFavorite !== null;
                }
           }
           media.reviews = await reviewModel.find({ mediaId }).populate("user").sort("-createdAt");
+
           responseHandler.ok(res, media);
 
      } catch {
