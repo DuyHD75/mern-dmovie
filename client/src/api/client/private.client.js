@@ -1,7 +1,7 @@
 import axios from 'axios';
 import queryString from 'query-string'; // parse param to object 
 
-const baseURL = "http://dmovie-api.vercel.app/api/v1";
+const baseURL = "https://dmovie-api.vercel.app/api/v1/api/v1";
 
 const privateClient = axios.create({
      baseURL,
