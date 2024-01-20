@@ -8,7 +8,7 @@ import routes from './src/routers/index.js'
 
 const app = express();
 
-app.use(cors()); // allow a server or an API to indicate any origins (diff protocol , hostname, or port)
+app.use(cors()); 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
