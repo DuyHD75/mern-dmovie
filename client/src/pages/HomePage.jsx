@@ -9,7 +9,7 @@ import MediaSlider from '../components/common/MediaSlider';
 const HomePage = () => {
   return (
     <Fragment>
-      <HeroSlide mediaType={tmdbConfigs.mediaType.movie} mediaCategory={tmdbConfigs.mediaCategory.popular} />
+      <HeroSlide mediaType={tmdbConfigs.mediaType.movie} mediaCategory={tmdbConfigs.mediaCategory.now_playing} />
 
       <Box marginTop="-3rem" sx={{ ...uiConfigs.style.mainContent }}>
         <Container header="popular movies">

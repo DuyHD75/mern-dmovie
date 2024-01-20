@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { Swiper } from "swiper/react";
-import { Pagination, Autoplay, EffectCreative } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay, EffectCreative } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-creative';
 
@@ -9,7 +9,7 @@ const NavigationSwiper = ({ children }) => {
      return (
           <Box sx={{
                "& .swiper-slide": {
-                    width: "90%",
+                    width: "100%",
                     opacity: "0.6",
                     paddingBottom: "3rem"
                },
@@ -28,28 +28,13 @@ const NavigationSwiper = ({ children }) => {
                }
           }}>
                <Swiper
-                    spaceBetween={10}
+                    spaceBetween={70}
                     grabCursor={true}
-                    effect={'creative'}
-                    creativeEffect={{
-                         prev: {
-                              shadow: true,
-                              translate: [0, 0, -400],
-                         },
-                         next: {
-                              translate: ['100%', 0, 0],
-                         },
-                    }}
-                    autoplay={{
-                         delay: 3000,
-                         disableOnInteraction: true,
-                    }}
                     pagination={{ clickable: true }}
-
-                    
+                    navigation={true}
                     slidesPerView={1}
-                    modules={[Pagination, EffectCreative, Autoplay]}
-                    style={{ width: "90%", height: "max-content" }}
+                    modules={[Navigation, Pagination, EffectCreative, Autoplay]}
+                    style={{ width: "100%", height: "max-content" }}
                >
                     {children}
                </Swiper>

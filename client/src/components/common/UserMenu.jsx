@@ -25,6 +25,7 @@ const UserMenu = () => {
                          >
                               {user.displayName}
                          </Typography>
+
                          <Menu
                               open={Boolean(anchorEl)}
                               anchorEl={anchorEl}
@@ -38,7 +39,9 @@ const UserMenu = () => {
                                         to={item.path}
                                         onClick={() => setAnchorEl(null)}
                                    >
+
                                         <ListItemIcon>{item.icon}</ListItemIcon>
+
                                         <ListItemText disableTypography primary={
                                              <Typography
                                                   textTransform="uppercase"
@@ -46,8 +49,10 @@ const UserMenu = () => {
                                                   {item.display}
                                              </Typography>
                                         } />
+
                                    </ListItemButton>
                               ))}
+
                               <ListItemButton
                                    sx={{ borderRadius: '10px' }}
                                    onClick={() => dispatch(setUser(null))}
@@ -55,6 +60,7 @@ const UserMenu = () => {
                                    <ListItemIcon>
                                         <LogoutOutlineIcon />
                                    </ListItemIcon>
+                                   
                                    <ListItemText
                                         disableTypography
                                         primary={

@@ -19,6 +19,7 @@ const MediaSlider = ({ mediaType, mediaCategory }) => {
           getMedias(); 
      }, [mediaType, mediaCategory])
 
+    
      return (
           <AutoSwiper>
                {medias.map((media, index) => (

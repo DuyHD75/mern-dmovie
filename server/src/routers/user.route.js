@@ -64,7 +64,6 @@ router.put("/update-password",
      userController.updatePassword
 );
 
-
 router.get(
      "/info",
      tokenMiddleware.auth,

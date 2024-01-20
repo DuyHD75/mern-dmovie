@@ -11,7 +11,7 @@ const BackdropSlide = ({ backdrops }) => {
                          <Box
                               sx={{
                                    paddingTop: "40%",
-                                   width: "90%",
+                                   width: "100%",
                                    backgroundPosition: "center",
                                    backgroundSize: 'cover',
                                    backgroundImage: `url(${tmdbConfigs.backdropPath(item.file_path)})`,

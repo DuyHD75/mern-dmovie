@@ -23,11 +23,11 @@ const MediaVideo = ({ video }) => {
                     key={video.key}
                     src={tmdbConfigs.ytbPath(video.key)}
                     ref={iframeRef}
-                    width={"90%"}
+                    width={"100%"}
                     title={video.id}
                     style={{
                          border: '2px solid rgba(255,255,255,0.9)',
-                         borderRadius: "10px"
+                         borderRadius: "10px",
                     }}
                ></iframe>
           </Box>

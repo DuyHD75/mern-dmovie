@@ -25,11 +25,10 @@ import { addFavorite, removeFavorite } from "../redux/features/userSlice";
 import CastSlide from "../components/common/CastSlide";
 import MediaVideosSlide from "../components/common/MediaVideosSlide";
 import BackdropSlide from "../components/common/BackdropSlide";
-// import MediaVideosSlide from "../components/common/MediaVideosSlide";
-// import BackdropSlide from "../components/common/BackdropSlide";
-// import PosterSlide from "../components/common/PosterSlide";
-// import RecommendSlide from "../components/common/RecommendSlide";
-// import MediaSlide from "../components/common/MediaSlide";
+import RecommendSlide from "../components/common/RecommendSlide";
+import MediaSlider from "../components/common/MediaSlider";
+import MediaReview from "../components/common/MediaReview";
+
 // import MediaReview from "../components/common/MediaReview";
 
 const MediaDetail = () => {
@@ -65,6 +64,8 @@ const MediaDetail = () => {
 
     getMedia();
   }, [mediaType, mediaId, dispatch]);
+
+  console.log(media)
 
 
   const onFavoriteClick = async () => {
@@ -118,6 +119,7 @@ const MediaDetail = () => {
       toast.success("Remove favorite success");
     }
   };
+
 
   return (
     media ? (
@@ -233,10 +235,13 @@ const MediaDetail = () => {
             </Box>
           </Box>
           {/* media content */}
-          <div ref={videoRef} style={{ paddingTop: "2rem" }}>
-            <Container header={"Trailers"}>
-              <MediaVideosSlide videos={[...media.videos.results].slice(0, 5)} />
-            </Container>
+          <div ref={videoRef} style={{ paddingTop: "1rem" }}>
+
+            {media.videos.results.length > 0 && (
+              <Container header={"Trailers"}>
+                <MediaVideosSlide videos={[...media.videos.results].slice(0, 5)} />
+              </Container>
+            )}
 
           </div>
           {/* media videos */}
@@ -247,7 +252,22 @@ const MediaDetail = () => {
             </Container>
           )}
 
-          
+          <MediaReview reviews={media.reviews} media={media} mediaType={mediaType} />
+
+          <Container header={`${mediaType} Recommendations`}>
+
+            {media.recommend.results.length > 0 && (
+              <RecommendSlide medias={media.recommend.results} mediaType={mediaType} />
+            )}
+            {media.recommend.results.length === 0 && (
+              <MediaSlider
+                mediaType={mediaType}
+                mediaCategory={tmdbConfigs.mediaCategory.top_rated}
+              />
+            )}
+          </Container>
+
+
 
         </Box>
       </Fragment>

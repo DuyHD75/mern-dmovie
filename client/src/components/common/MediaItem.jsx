@@ -22,7 +22,7 @@ const MediaItem = ({ media, mediaType }) => {
 
      useEffect(() => {
           setTitle(media.title || media.name || media.mediaTitle);
-          setPosterPath(tmdbConfigs.posterPath(media.poster_path || media.backdrop_path || media.profile_path));
+          setPosterPath(tmdbConfigs.posterPath(media.poster_path || media.backdrop_path || media.profile_path || media.mediaPoster));
 
           if (mediaType === tmdbConfigs.mediaType.movie) {
                setReleaseDate(media.release_date && media.release_date.split("-")[0]);
@@ -44,7 +44,7 @@ const MediaItem = ({ media, mediaType }) => {
                     "&:hover .media-info": { opacity: 1, bottom: 0 },
                     "&:hover .media-back-drop, &:hover .media-play-btn": { opacity: 1 },
                     color: "primary.contrastText",
-                    boxShadow: 3, 
+                    boxShadow: 3,
                     borderColor: 'primary.main'
                }}>
                     {mediaType !== "people" && (

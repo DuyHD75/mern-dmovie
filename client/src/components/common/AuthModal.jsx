@@ -13,7 +13,7 @@ const actionState = {
 }
 
 const AuthModal = () => {
-  const { authModalOpen } = useSelector((state) => state.authModal); //  extract data from the Redux store.
+  const { authModalOpen } = useSelector((state) => state.authModal);
 
   const dispatch = useDispatch();
 

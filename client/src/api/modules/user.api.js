@@ -30,9 +30,9 @@ const userApi = {
                return { response };
           } catch (err) { return { err } }
      },
-     passwordUpdate: async ({ password, newPassword, confirmPassword }) => {
+     passwordUpdate: async ({ password, newPassword, confirmNewPassword }) => {
           try {
-               const response = await privateClient.put(userEndpoints.passwordUpdate, { password, newPassword, confirmPassword });
+               const response = await privateClient.put(userEndpoints.passwordUpdate, { password, newPassword, confirmNewPassword });
                return { response };
           } catch (err) { return { err } }
      }
