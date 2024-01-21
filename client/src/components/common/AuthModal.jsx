@@ -18,6 +18,7 @@ const AuthModal = () => {
   const dispatch = useDispatch();
 
   const [action, setAction] = useState(actionState);
+
   const switchAuthState = (state) => setAction(state);
 
   useEffect(() => {

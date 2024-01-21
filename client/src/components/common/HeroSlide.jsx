@@ -75,14 +75,13 @@ const HeroSlide = ({ mediaType, mediaCategory }) => {
                <Swiper
                     grabCursor={true}
                     loop={true}
-                    // modules={[Autoplay]}
+                    modules={[Autoplay]}
                     style={{ width: "100%", height: "max-content" }}
-               // autoplay={{
-               //      delay: 3000,
-               //      disableOnInteraction: false
-               // }}
+                    autoplay={{
+                         delay: 3000,
+                         disableOnInteraction: false
+                    }}
                >
-
                     {movies.map((movie, index) => (
                          <SwiperSlide key={index}>
                               <Box
@@ -96,7 +95,8 @@ const HeroSlide = ({ mediaType, mediaCategory }) => {
                                         backgroundPosition: "top",
                                         backgroundSize: "cover",
                                         backgroundImage: `url(${tmdbConfigs.backdropPath(movie.backdrop_path || movie.poster_path)})`,
-                                   }} />
+                                   }}
+                              />
 
                               <Box sx={{
                                    width: "100%",
@@ -152,16 +152,11 @@ const HeroSlide = ({ mediaType, mediaCategory }) => {
                                         </Stack>
                                    </Box>
                               </Box>
-
-
-
                          </SwiperSlide>
                     ))}
-
-
                </Swiper>
           </Box>
-     )
-}
+     );
+};
 
 export default HeroSlide;

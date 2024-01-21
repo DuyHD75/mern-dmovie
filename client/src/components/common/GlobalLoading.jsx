@@ -32,7 +32,9 @@ const GlobalLoading = () => {
                     zIndex: 999
                }}>
                     <Toolbar />
+
                     <LinearProgress />
+
                     <Box
                          sx={{
                               position: "absolute",

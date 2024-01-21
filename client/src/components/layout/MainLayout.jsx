@@ -12,8 +12,6 @@ import favoriteApi from "../../api/modules/favorite.api";
 import { setListFavorites, setUser } from "../../redux/features/userSlice";
 
 const MainLayout = () => {
-
-
      const dispatch = useDispatch();
 
      const { user } = useSelector((state) => state.user);
@@ -26,7 +24,8 @@ const MainLayout = () => {
                if (err) dispatch(setUser(null));
           };
 
-          authUser();
+          user && authUser();
+
      }, [dispatch]);
 
      useEffect(() => {
@@ -36,9 +35,7 @@ const MainLayout = () => {
                if (response) dispatch(setListFavorites(response));
                if (err) toast.error(err.message);
           };
-
-          if (user) getFavorites();
-          if (!user) dispatch(setListFavorites([]));
+          user != null ? getFavorites() : dispatch(setListFavorites([]));
      }, [user, dispatch]);
 
      return (

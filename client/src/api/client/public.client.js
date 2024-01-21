@@ -7,7 +7,7 @@ const publicClient = axios.create({
      baseURL,
      paramsSerializer: {
           encode: params => queryString.stringify(params)
-     }
+     },
 });
 
 publicClient.interceptors.request.use(async config => {
@@ -25,5 +25,6 @@ publicClient.interceptors.response.use((response) => {
 }, (err) => {
      throw err.response.data;
 });
+
 
 export default publicClient;
